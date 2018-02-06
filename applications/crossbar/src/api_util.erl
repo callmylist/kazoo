@@ -1256,7 +1256,6 @@ create_resp_file(Req, Context) ->
     {{Len, Fun}, Req}.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Encode the JObj and send it as a chunk. Start chunk response if is
 %% not started yet.
@@ -1311,7 +1310,6 @@ create_csv_chunk_response(Req, Context) ->
             {'true', Req1}
     end.
 
-%% @public
 -spec init_chunk_stream(cowboy_req:req(), kz_term:ne_binary()) -> cowboy_req:req().
 init_chunk_stream(Req, <<"to_json">>) ->
     Headers = cowboy_req:resp_headers(Req),

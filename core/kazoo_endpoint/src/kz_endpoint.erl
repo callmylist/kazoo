@@ -93,7 +93,6 @@
                           kz_datamgr:data_error().
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Fetches a endpoint defintion from the database or cache
 %% @end
@@ -604,7 +603,6 @@ create_endpoint_name('undefined', Last, _, _) -> Last;
 create_endpoint_name(First, Last, _, _) -> <<First/binary, " ", Last/binary>>.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Flush the callflow cache
 %% @end
@@ -642,7 +640,6 @@ flush(Db, Id) ->
     'ok' = kz_amqp_worker:cast(Props, Fun).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Creates one or more kazoo API endpoints for use in a bridge string.
 %% Takes into account settings on the callflow, the endpoint, call
@@ -854,7 +851,6 @@ maybe_exclude_from_queues(Endpoint, _Properties, Call) ->
     end.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% creates the actual endpoint json objects for use in the kazoo
 %% bridge API.
@@ -1904,7 +1900,6 @@ build_mobile_sms_amqp_route_options(JObj) ->
     ].
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Get the sip realm
 %% @end

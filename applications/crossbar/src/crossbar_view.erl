@@ -123,7 +123,6 @@
             ).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Equivalent of load/3, setting Options to an empty list.
 %% @end
@@ -133,7 +132,6 @@ load(Context, View) ->
     load(Context, View, []).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% This function attempts to load the context with the results of a view
 %% run against the accounts database.
@@ -144,7 +142,6 @@ load(Context, View, Options) ->
     load_view(build_load_params(Context, View, Options), Context).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Equivalent of load/3, setting Options to an empty list.
 %% @end
@@ -154,7 +151,6 @@ load_range(Context, View) ->
     load_range(Context, View, []).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% This function attempts to load the context with the timestamped
 %% results of a view run against the accounts database.
@@ -165,7 +161,6 @@ load_range(Context, View, Options) ->
     load_view(build_load_range_params(Context, View, Options), Context).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Equivalent of load_modb/3, setting Options to an empty list.
 %% @end
@@ -175,7 +170,6 @@ load_modb(Context, View) ->
     load_modb(Context, View, []).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% This function attempts to load the context with the results of a view
 %% run against the account's MODBs.
@@ -186,7 +180,6 @@ load_modb(Context, View, Options) ->
     load_view(build_load_modb_params(Context, View, Options), Context).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Generates corssbar_view options map for querying view.
 %% @end
@@ -249,7 +242,6 @@ build_load_range_params(Context, View, Options) ->
     end.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Generates corssbar_view options map for querying MODBs view.
 %% @end
@@ -267,7 +259,6 @@ build_load_modb_params(Context, View, Options) ->
     end.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Build CouchDB view options. It sets start/end keys,
 %% direction and `include_docs` (if it's not using reduce) and removes
@@ -306,7 +297,6 @@ build_view_query(Options, Direction, StartKey, EndKey, HasQSFilter) ->
     end.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Equivalent of `start_end_keys/3`, set direction
 %% @end
@@ -316,7 +306,6 @@ start_end_keys(Context, Options) ->
     start_end_keys(Context, Options, direction(Context, Options)).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Find start/end keys based on direction.
 %% If `start_key` or `end_key` is present in the request they will be
@@ -346,7 +335,6 @@ start_end_keys(Context, Options, Direction) ->
     end.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Equivalent of `ranged_start_end_keys/5`, find time ranges and direction
 %% and pass them to `ranged_start_end_keys/5`.
@@ -359,7 +347,6 @@ ranged_start_end_keys(Context, Options) ->
     ranged_start_end_keys(Context, Options, Direction, StartTime, EndTime).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Find start/end keys based on requested time range and direction.
 %% If `start_key` or `end_key` is present in the request it will be
@@ -388,7 +375,6 @@ ranged_start_end_keys(Context, Options, Direction, StartTime, EndTime) ->
     end.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Suffix the Timestamp to the provided key map option. Useful to use
 %% generate the keys like [TS, InteractionId] for the end key in
@@ -405,7 +391,6 @@ suffix_key_fun(K) when is_list(K) -> fun(Ts) -> [Ts | K] end;
 suffix_key_fun(K) when is_function(K, 1) -> K.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Equivalent to direction/2, setting Options to an empty list.
 %% @end
@@ -415,7 +400,6 @@ direction(Context) ->
     direction(Context, []).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Find view sort direction from CrossbarView Options or request
 %% query string. Default to `descending`.
@@ -432,7 +416,6 @@ direction(Context, Options) ->
     end.
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Equivalent to time_range/2, setting Options to an empty list.
 %% @end
@@ -441,7 +424,6 @@ direction(Context, Options) ->
 time_range(Context) -> time_range(Context, []).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Get view lookup time range from request or CrossbarView Options or
 %% return default range based on system configuration(maximum range).
@@ -468,7 +450,6 @@ time_range(Context, Options, Key) ->
     time_range(Context, MaxRange, Key, RangeFrom, RangeTo).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Checks whether or not end time is prior to start time. Returns a ranged
 %% tuple `{start_time, end_time}` or `context` with validation error.
@@ -888,7 +869,6 @@ add_paging(StartKey, PageSize, NextStartKey, JObj) ->
 %%%===================================================================
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Generates general corssbar_view options map for querying view.
 %% @end

@@ -34,7 +34,6 @@
 -define(RES_CONFIG_CAT, <<?CF_CONFIG_CAT/binary, ".resources">>).
 
 %%--------------------------------------------------------------------
-%% @public
 %% @doc
 %% Entry point for this module
 %% @end
