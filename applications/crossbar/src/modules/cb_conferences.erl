@@ -11,12 +11,12 @@
 %%% /v2/accounts/{AccountId}/conferences/{ConferenceID}/participants
 %%% /v2/accounts/{AccountId}/conferences/{ConferenceID}/participants/{ParticipantId}
 %%%
+%%%
+%%% @author Karl Anderson
+%%% @author James Aimonetti
+%%% @author Roman Galeev
 %%% @end
-%%% @contributors
-%%%   Karl Anderson
-%%%   James Aimonetti
-%%%   Roman Galeev
-
+%%%-------------------------------------------------------------------
 -module(cb_conferences).
 
 -export([init/0
@@ -923,3 +923,4 @@ search_conferences(Context) ->
 search_conferences_fold(JObj, Acc) ->
     V = kz_json:get_json_value(<<"Conferences">>, JObj, kz_json:new()),
     kz_json:merge_jobjs(V, Acc).
+

@@ -2,10 +2,10 @@
 %%% @copyright (C) 2012-2018, 2600Hz
 %%% @doc
 %%%
+%%%
+%%% @author James Aimonetti
+%%% @author Sponsored by GTNetwork LLC, Implemented by SIPLABS LLC
 %%% @end
-%%% @contributors
-%%%   James Aimonetti
-%%%   KAZOO-3596: Sponsored by GTNetwork LLC, implemented by SIPLABS LLC
 %%%-------------------------------------------------------------------
 -module(kapi_acdc_stats).
 

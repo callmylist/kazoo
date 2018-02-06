@@ -1,12 +1,11 @@
-%%%-----------------------------------------------------------------------------
+%%%-------------------------------------------------------------------
 %%% @copyright (C) 2011-2018, 2600Hz
 %%% @doc
 %%% Google Drive for attachments
+%%%
+%%% @author Luis Azedo
 %%% @end
-%%% @contributors
-%%%   Luis Azedo
-%%%-----------------------------------------------------------------------------
-
+%%%-------------------------------------------------------------------
 -module(kz_att_onedrive).
 -behaviour(gen_attachment).
 
@@ -147,3 +146,4 @@ onedrive_put(Url, Headers, Body) ->
         Resp ->
             kz_att_util:handle_http_error_response(Resp, "Graph error", Url)
     end.
+

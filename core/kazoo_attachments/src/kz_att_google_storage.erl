@@ -1,12 +1,11 @@
-%%%-----------------------------------------------------------------------------
+%%%-------------------------------------------------------------------
 %%% @copyright (C) 2011-2018, 2600Hz
 %%% @doc
 %%% Google Storage for attachments
+%%%
+%%% @author Luis Azedo
 %%% @end
-%%% @contributors
-%%%   Luis Azedo
-%%%-----------------------------------------------------------------------------
-
+%%%-------------------------------------------------------------------
 -module(kz_att_google_storage).
 -behaviour(gen_attachment).
 
@@ -25,9 +24,10 @@
 -define(DRV_SCOPES, [?DRV_SCOPE]).
 -define(DRV_TOKEN_OPTIONS, #{scopes => ?DRV_SCOPES}).
 
-%% ====================================================================
-%% `gen_attachment' behaviour callbacks (API)
-%% ====================================================================
+%%%====================================================================
+%%% `gen_attachment' behaviour callbacks (API)
+%%%====================================================================
+
 -spec put_attachment(gen_attachment:settings()
                     ,gen_attachment:db_name()
                     ,gen_attachment:doc_id()
@@ -81,9 +81,10 @@ fetch_attachment(HandlerProps, _DbName, _DocId, _AName) ->
             end
     end.
 
-%% ====================================================================
-%% Internal functions
-%% ====================================================================
+%%%====================================================================
+%%% Internal functions
+%%%====================================================================
+
 -spec gstorage_default_fields() -> kz_term:proplist().
 gstorage_default_fields() ->
     [{group, [{arg, <<"id">>}
