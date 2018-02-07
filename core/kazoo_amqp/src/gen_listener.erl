@@ -416,13 +416,6 @@ init(Module, Params, ModuleState, TimeoutRef) ->
 %% @doc
 %% Handling call messages
 %%
-%% @spec handle_call(Request, From, State) ->
-%%                                   {'reply', Reply, State} |
-%%                                   {'reply', Reply, State, Timeout} |
-%%                                   {'noreply', State} |
-%%                                   {'noreply', State, Timeout} |
-%%                                   {'stop', Reason, Reply, State} |
-%%                                   {'stop', Reason, State}
 %% @end
 %%--------------------------------------------------------------------
 -spec handle_call(any(), kz_term:pid_ref(), state()) -> handle_call_return().
@@ -454,9 +447,6 @@ handle_call(Request, From, State) ->
 %% @doc
 %% Handling cast messages
 %%
-%% @spec handle_cast(Msg, State) -> {'noreply', State} |
-%%                                  {'noreply', State, Timeout} |
-%%                                  {'stop', Reason, State}
 %% @end
 %%--------------------------------------------------------------------
 -spec handle_cast(any(), state()) -> handle_cast_return().
@@ -591,9 +581,6 @@ maybe_remove_binding(_BP, _B, _P, _Q) -> 'true'.
 %% @doc
 %% Handling all non call/cast messages
 %%
-%% @spec handle_info(Info, State) -> {'noreply', State} |
-%%                                   {'noreply', State, Timeout} |
-%%                                   {'stop', Reason, State}
 %% @end
 %%--------------------------------------------------------------------
 -spec handle_info(any(), state()) -> kz_types:handle_info_ret().
@@ -669,7 +656,6 @@ handle_info(Message, State) ->
 %% Handles the AMQP messages prior to the spawning a handler.
 %% Allows listeners to pass options to handlers
 %%
-%% @spec handle_event(JObj, State) -> {'reply', Options} | ignore
 %% @end
 %%--------------------------------------------------------------------
 -spec handle_event(kz_term:ne_binary(), kz_term:ne_binary(), deliver(), state()) ->  state().
@@ -688,7 +674,6 @@ handle_event(Payload, <<"application/erlang">>, Deliver, State) ->
 %% Handles the AMQP messages prior to the spawning a handler.
 %% Allows listeners to pass options to handlers
 %%
-%% @spec handle_event(JObj, State) -> {'reply', Options} | ignore
 %% @end
 %%--------------------------------------------------------------------
 -spec handle_return(kz_term:ne_binary(), kz_term:ne_binary(), #'basic.return'{}, state()) ->  handle_cast_return().
@@ -728,7 +713,6 @@ handle_confirm(Confirm, State) ->
 %% @doc
 %%
 %%
-%% @spec terminate(Reason, State) -> void()
 %% @end
 %%--------------------------------------------------------------------
 -spec terminate(any(), state()) -> 'ok'.
@@ -748,7 +732,6 @@ terminate(Reason, #state{module=Module
 %% @doc
 %% Convert process state when code is changed
 %%
-%% @spec code_change(OldVsn, State, Extra) -> {'ok', NewState}
 %% @end
 %%--------------------------------------------------------------------
 -spec code_change(any(), state(), any()) -> {'ok', state()}.
